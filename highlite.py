@@ -7,6 +7,7 @@ import argparse
 import os, os.path
 import re
 import sys
+import unicodedata
 
 p = argparse.ArgumentParser(description='')
 p.add_argument('-i', '--ignorecase', '--ignore-case', action='store_true', default=False)
@@ -18,6 +19,8 @@ p.add_argument('anon_pattern', metavar='pattern', type=str, nargs=1)
 args = p.parse_args()
 
 pattern = args.anon_pattern[0]
+pattern = pattern.decode('utf-8')
+pattern = unicodedata.normalize('NFC', pattern)
 if args.fuzzy:
     pattern = '(' + '.*'.join(re.escape(c) for c in pattern) + ')'
 elif args.regexp:
@@ -36,6 +39,7 @@ pattern = re.compile(pattern, flags)
 
 data = sys.stdin.read()
 data = data.decode('utf-8')
+data = unicodedata.normalize('NFC', data)
 data = pattern.sub(r'\033[32m\1\033[0m', data)
 print(data)
 
