@@ -35,6 +35,7 @@ if args.regex_dotall:
 pattern = re.compile(pattern, flags)
 
 data = sys.stdin.read()
+data = data.decode('utf-8')
 data = pattern.sub(r'\033[32m\1\033[0m', data)
 print(data)
 
