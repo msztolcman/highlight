@@ -1,4 +1,4 @@
-highlite
-========
+highlight
+=========
 
-Highlite the found text.
+Highlight the found text.
