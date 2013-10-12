@@ -1,6 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+""" highlight - Highlight the found text.
+    http://mysz.github.io/highlight
+    Author: Marcin Sztolcman (marcin@urzenia.net)
+
+    Get help with: highlight --help
+    Information about version: highlight --version
+"""
+
 from __future__ import print_function, unicode_literals
 
 __version__ = 0.1
